@@ -1,0 +1,17 @@
+{
+  "name": "nodejs-google-sheet-db",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dbping": "node db_connect.js",
+    "exp1": "node exp1.js",
+    "exp2": "node exp2.js",
+    "exp3": "node exp3.js"
+  },
+  "dependencies": {
+    "googleapis": "^136.0.0",
+    "pg": "^8.11.5"
+  }
+}
