@@ -1,26 +1,26 @@
-//Простой пример вставки массива значений в таблицу
+//Простой пример вставки одного значения в таблицу
 
 import { google } from 'googleapis'
 
 // Аутентификация клиента
 import { auth, sheetID } from './auth.js'
-
 // Создание экземпляра клиента Google Sheets
 const sheets = google.sheets({ version: 'v4', auth });
 
-// Функция для вставки массива данных в столбец B
-const insertData = async (data, sheetID) => {
-    const range = 'Sheet1!B1:B' + data.length;
+const data = '=CombineAndSummarize("allData!B1:C741")'//'Hello, World! 3'
+const range = 'test!A1'
+
+// Обновление ячейки
+const updateCell = async (cell, value, sheetID) => {
     await sheets.spreadsheets.values.update({
         spreadsheetId: sheetID,
-        range: range,
+        range: cell,
         valueInputOption: 'USER_ENTERED',
         resource: {
-            values: data.map(value => [value]),
+            values: [[value]],
         },
     });
 };
 
 // Пример использования
-const dataArray = [1, 2, 3, 4];
-insertData(dataArray, sheetID);
+updateCell(range, data, sheetID);

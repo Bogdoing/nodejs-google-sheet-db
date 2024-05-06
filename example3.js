@@ -13,7 +13,8 @@ const sheets = google.sheets({ version: 'v4', auth });
  */
 const data_db = async () => {
     try {
-        const { rows } = await db.query("select * from hh order by data limit 54", [])
+        // const { rows } = await db.query("select * from hh order by data limit 54", [])
+        const { rows } = await db.query("select * from hh order by data", [])
         if (rows[0]) { return { rows } }
         return { msg: "not found" }
     } catch (error) {
@@ -41,7 +42,7 @@ const range_Item = ['id', 'lang', 'vac', 'vacref', 'res', 'region', 'data']
 
 for (let i = 0; i < range_Char.length; i++) {
     try {
-        const range = `Sheet2!${range_Char[i]}2:${range_Char[i]}${data.rows.length+1}`;
+        const range = `allData!${range_Char[i]}2:${range_Char[i]}${data.rows.length+1}`;
         console.log(range)
         insertData(data.rows.map(item => item[range_Item[i]]), range, sheetID);
     }
