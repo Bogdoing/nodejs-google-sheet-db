@@ -6,10 +6,10 @@
   "type": "module",
   "scripts": {
     "dbping": "node db_connect.js",
-    "exp1": "node exp1.js",
-    "exp2": "node exp2.js",
-    "exp3": "node exp3.js",
-    "exp4": "node exp4.js"
+    "exp1": "node example1.js",
+    "exp2": "node example2.js",
+    "exp3": "node example3.js",
+    "exp4": "node example4.js"
   },
   "dependencies": {
     "googleapis": "^136.0.0",

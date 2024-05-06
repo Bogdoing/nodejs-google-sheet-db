@@ -7,7 +7,7 @@ const spreadsheetId = sheetID // в ф-ю sheets.spreadsheets.values.get нуж�
 
 const sheets = google.sheets({ version: 'v4', auth });
 
-let range = "allData!B1:C741"
+let range = "allData!A1:G741"
 
 console.log(sheetID)
 
